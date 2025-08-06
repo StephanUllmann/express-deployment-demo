@@ -19,9 +19,11 @@ try {
 
 app.use(express.json());
 
-app.use(cors({
-  
-}));
+app.use(cors({}));
+
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to this Demo API' });
+});
 
 app.get('/health', async (req, res) => {
   const dbResponse = await mongoose.connection.db.admin().ping();
